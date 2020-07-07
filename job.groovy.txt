@@ -68,7 +68,7 @@ fi''')
       contentType('text/html')
       triggers {
         success {
-          attachBuildLog(true)
+  ]        attachBuildLog(true)
           subject('Build successful')
           content('The build was successful and pods are deployed and running successful.')
           recipientList('pchaturvedi19989@gmail.com')
@@ -92,24 +92,5 @@ description ("This job will keep on checking the website, whether it is working 
   }
   steps {
     shell('''curl 192.168.99.100:''')
-  }
-  publishers {
-    extendedEmail {
-      contentType('text/html')
-      triggers {
-        success {
-          attachBuildLog(true)
-          subject('Running successfully')
-          content('Website is running fine')
-          recipientList('pchaturvedi19989@gmail.com')
-        }
-        failure{
-          attachBuildLog(true)
-          subject('Error')
-          content('Website is not running. Please check!')
-          recipientList('pchaturvedi19989@gmail.com')
-        }
-      }
     }
-  }
 }
